@@ -21,7 +21,7 @@ use Exception;
 class Request
 {
   public $base_url;
-
+  private $status_code;
   /**
    * Construtor
    * 
@@ -68,6 +68,9 @@ class Request
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     $response = curl_exec($ch);
+
+    $this->status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
     if ($response === false)
       return curl_error($ch);
     curl_close($ch);
@@ -115,6 +118,7 @@ class Request
 
     $response = curl_exec($ch);
 
+    $this->status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
     if ($response === false)
       throw new Exception(curl_error($ch));
@@ -168,6 +172,9 @@ class Request
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     $response = curl_exec($ch);
+
+    $this->status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
     curl_close($ch);
     if (in_array("Content-Type: application/json", $headers))
       $response = json_decode($response);
@@ -205,10 +212,18 @@ class Request
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     $response = curl_exec($ch);
+
+    $this->status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
     curl_close($ch);
     if (in_array("Content-Type: application/json", $headers))
       $response = json_decode($response);
 
     return $response;
+  }
+
+  public function getStatusCode()
+  {
+    return $this->status_code;
   }
 }

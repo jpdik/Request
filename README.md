@@ -20,7 +20,9 @@ Specify the rest of request and Type (GET, POST, PUT or DELETE) and get the resp
 ```php
 $res = $req->get("/weather", "?q=São joão del rei&appid=d15abc236092bbf9dd28fa2c0a7a02a9");
 
-if($res){
+$status = res->getStatusCode();
+
+if($status == 200 && $res){
   echo json_encode($res);
 }
 ```
@@ -39,6 +41,9 @@ put($url, $body, $option = null, array $headers = null, $timeout = null)
 
 //DELETE
 delete($url, $option = null, array $headers = null, $timeout = null)
+
+//Get the status from request
+getStatusCode()
 ```
 
 ## Example Headers
@@ -64,7 +69,9 @@ $req = new Request("https://api.openweathermap.org/data/2.5");
 
 $res = $req->get("/weather", "?q=São joão del rei&appid=d15abc236092bbf9dd28fa2c0a7a02a9");
 
-if($res){
+$status = res->getStatusCode();
+
+if($status == 200 && $res){
   echo json_encode($res);
 }
 ```
