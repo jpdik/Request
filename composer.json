@@ -1,0 +1,33 @@
+{
+  "name": "jpdik/request",
+  "description": "A simple request class",
+  "type": "http",
+  "keywords": [
+    "jpdik",
+    "api",
+    "http",
+    "http-message",
+    "curl",
+    "request",
+    "response"
+  ],
+  "homepage": "https://github.com/jpdik/request",
+  "license": "GNU",
+  "authors": [
+    {
+      "name": "João Paulo",
+      "email": "jpmdik@gmail.com",
+      "homepage": "https://www.jpmdik.com.br",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "jpdik": "src/"
+    }
+  }
+}
