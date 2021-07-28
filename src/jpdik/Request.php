@@ -82,7 +82,7 @@ class Request
    * 
    * Faz uma requisição do tipo POST.
    * 
-   * Também é permitido passar oçpões para a URL e headers (campos opcionais)
+   * Também é permitido passar opções para a URL e headers (campos opcionais)
    * 
    * Exemplo:
    * 
